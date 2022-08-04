@@ -25,4 +25,5 @@ public class Produto {
     @ManyToOne
     private Fornecedor fornecedor;
 
+
 }

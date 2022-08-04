@@ -57,15 +57,27 @@
             <div class="col-3 border">
                 <div class="d-flex justify-content-between p-1">
                     <span class="fs-4 fw-bold text-warning">Filtrar por:</span>
-                    <a href="#" class="link-primary text-decoration-none mt-2"><small>Limpar filtros</small></a>   
+                    <a href="http://localhost:8080/home" class="link-primary text-decoration-none mt-2"><small>Limpar filtros</small></a>   
                 </div>     
-                <ul class="list-group">
-                    <li class="list-group-item fw-bold">Categoria</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
+                <div class="form-group">
+                    <span class="h6 fw-bold">Categorias:</span>
+                    <ul>
+                        <li>
+                            <!-- <input type="radio" name="opCategoria" value="mercearia">
+                            <label>Mercearia</label> -->
+                            <a th:classappend="${produtos} == 'mercearia' ? 'active'" class="nav-item nav-link" href="http://localhost:8080/home/mercearia">Mercearia</a>
+                        </li>
+                        <li>
+                            <input type="radio" name="opCategoria" value="lacteo">
+                            <label>Lácteo</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="opCategoria" value="acougue e peixaria">
+                            <label>Açougue e Peixaria</label>
+                        </li>
+                    </ul>
+                    <button class="btn btn-warning">Filtrar</button>
+                </div>
                 <label for="customRange2" class="form-label mt-5 fw-bold">Algo aqui:</label>
                 <input type="range" class="form-range" min="0" max="5" id="customRange2"> 
             </div>
@@ -73,6 +85,8 @@
             <!--PRODUTOS-->
             <div class="col-9">
                 <div class="container">
+                    <div class="text-center"> <span class="h1 text-warning fw-bold" >Mercearia</span> </div>
+                    <hr>
                     <div class="row">
                         <div class="col-4 mb-2" th:each="produto : ${produtos}">
                             <div class="card w-80 shadow">
