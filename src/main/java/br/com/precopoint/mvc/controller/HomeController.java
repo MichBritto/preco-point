@@ -26,8 +26,10 @@ public class HomeController {
     @GetMapping
     public ModelAndView carregaProdutos(){
         List<Produto> produtos = produtoRepository.findAll();
-        ModelAndView mv = new ModelAndView("index.html");
+        List<Categoria> categorias = categoriaRepository.findAll();
+        ModelAndView mv = new ModelAndView("teste.html");
         mv.addObject("produtos",produtos);
+        mv.addObject("categorias", categorias);
         return mv;
     }
 

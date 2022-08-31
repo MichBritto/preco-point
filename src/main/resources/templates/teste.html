@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    
     <title>Preço Point</title>
     <!--CSS-->
     <style>
@@ -35,14 +36,28 @@
     <!--HEADER-->
     <nav class="navbar navbar-expand navbar-light  bg-dark d-flex justify-content-between mb-2">
         <div class="container-fluid">
-            <div class="navbar-nav"> 
+            <div class="navbar-nav mt-3 collapse navbar-collapse" >
+
                 <a  class="nav-item nav-link logo text-warning">Preço Point</a>
-                <div class="navbar-nav mt-3">
-                    <a  class="nav-item nav-link text-light" href="">Produtos</a>
-                    <a  class="nav-item nav-link text-light" href="">Categorias</a>
-                    <a  class="nav-item nav-link text-light" href="">Sobre Nós</a>
-                    <a  class="nav-item nav-link text-light" href="">Sua Lista</a>
-                </div>
+
+                <a  class="nav-item nav-link text-light" href="">Produtos</a>
+                <!--##########-DROPDOWN MENU-#########-->
+                    <div class="dropdown navbar-item text-light lh-lg mt-2.5">
+                        <a class="nav-link dropdown-toggle text-light" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="Categorias" >
+                            <div th:each="categoria : ${categorias}">
+                                <a class="dropdown-item" href="#" th:href="@{|categoria?categoria=${categoria.nomeCategoria}|}" th:text="${categoria.nomeCategoria}">X</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                <a  class="nav-item nav-link text-light" href="">Sobre Nós</a>
+                <a  class="nav-item nav-link text-light" href="">Sua Lista</a>
+
+
             </div>
            <a href=""><button class="btn btn-outline-warning my-2 my-sm-0">Login</button></a>
         </div>  
